@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masjid Nurul Falah Mejasem. | Kedamaian & Ukhuwah</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-overlay {
+            background-color: rgba(6, 78, 59, 0.7);
+        }
+        main > section, section.page-section {
+          opacity: 0;
+          transform: translateY(15px);
+          transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        main > section.active, section.page-section.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        #menu-loader {
+          position: fixed;
+          inset: 0;
+          background: rgba(255, 255, 255, 0.95);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        #menu-loader.show {
+          opacity: 1;
+          visibility: visible;
+        }
+        #menu-loader img {
+          width: 70px;
+          height: 70px;
+          animation: spin 1s linear infinite;
+        }
+        #menu-loader p {
+          margin-top: 12px;
+          color: #065f46;
+          font-weight: 500;
+        }
+        @keyframes spin {
+         100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Loading -->
+    <div id="menu-loader">
+      <img src="unnamed.png" alt="Logo">
+      <p>Memuat...</p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-emerald-700 text-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    
+    <!-- Logo & Nama Masjid -->
+    <div class="flex items-center gap-3">
+      <img src="unnamed.png" alt="Logo Masjid" class="h-12 w-12">
+      <span class="text-xl font-bold">Masjid Nurul Falah</span>
+    </div>
+
+    <!-- Menu -->
+    <div class="flex gap-3 flex-wrap">
+      <a href="javascript:void(0)" data-target="beranda" 
+         class="menu-link px-4 py-2 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300 font-medium">
+         Beranda
+      </a>
+      
+      <a href="javascript:void(0)" data-target="jadwal" 
+         class="menu-link px-4 py-2 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300 font-medium">
+         Jadwal Sholat
+      </a>
+      
+      <a href="javascript:void(0)" data-target="tentang" 
+         class="menu-link px-4 py-2 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300 font-medium">
+         Profil
+      </a>
+      
+      <a href="javascript:void(0)" data-target="kegiatan" 
+         class="menu-link px-4 py-2 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300 font-medium">
+         Kegiatan
+      </a>
+      
+      <a href="javascript:void(0)" data-target="dokumentasi" 
+         class="menu-link px-4 py-2 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300 font-medium">
+         Dokumentasi
+      </a>
+      
+      <a href="javascript:void(0)" data-target="donasi" 
+         class="menu-link px-4 py-2 rounded-full hover:bg-white hover:text-emerald-700 transition duration-300 font-medium">
+         Donasi
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="page-section active relative min-h-screen flex items-center justify-center bg-emerald-700 pt-24">
+        <div class="absolute inset-0 bg-overlay"></div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Masjid Nurul Falah Mejasem</h1>
+            <p class="text-lg md:text-xl mb-8 font-light">Membangun Umat, Menebar Manfaat, dan Menjalin Ukhuwah Islamiyah di Tengah Masyarakat.</p>
+            <a href="javascript:void(0)" data-target="jadwal" class="menu-link bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-full inline-block">
+                Lihat Jadwal Sholat
+            </a>
+        </div>
+    </section>
+
+    <!-- Jadwal Sholat Section -->
+    <section id="jadwal" class="page-section hidden pt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-emerald-800">Jadwal Sholat Hari Ini</h2>
+                <p class="text-gray-500 mt-2">Tegal dan Sekitarnya</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <div class="bg-emerald-50 p-6 rounded-xl shadow-sm border-emerald-100 hover:shadow-md transition">
+                    <h3 class="font-semibold text-emerald-800 mb-2">Subuh</h3>
+                    <p class="text-2xl font-bold text-gray-800">04:35</p>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-xl shadow-sm border-emerald-100 hover:shadow-md transition">
+                    <h3 class="font-semibold text-emerald-800 mb-2">Dzuhur</h3>
+                    <p class="text-2xl font-bold text-gray-800">11:53</p>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-xl shadow-sm border-emerald-100 hover:shadow-md transition">
+                    <h3 class="font-semibold text-emerald-800 mb-2">Ashar</h3>
+                    <p class="text-2xl font-bold text-gray-800">15:14</p>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-xl shadow-sm border-emerald-100 hover:shadow-md transition">
+                    <h3 class="font-semibold text-emerald-800 mb-2">Maghrib</h3>
+                    <p class="text-2xl font-bold text-gray-800">17:49</p>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-xl shadow-sm border-emerald-100 hover:shadow-md transition">
+                    <h3 class="font-semibold text-emerald-800 mb-2">Isya</h3>
+                    <p class="text-2xl font-bold text-gray-800">19:01</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Masjid -->
+    <section id="tentang" class="page-section hidden pt-24">  
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="unnamed.png" alt="Logo Masjid" width="300">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">Tentang Masjid Nurul Falah</h2>
+                    <p class="mb-4 text-emerald-700 leading-relaxed">
+                        Masjid Nurul Falah telah menjadi pusat ibadah dan kegiatan keagamaan bagi masyarakat sekitar. Kami berkomitmen untuk menyediakan lingkungan yang nyaman bagi para jamaah.
+                    </p>
+                    <p class="mb-6 text-emerald-700 leading-relaxed">
+                        Selain menjadi tempat sholat lima waktu, masjid ini juga aktif menyelenggarakan berbagai kajian keislaman, serta program sosial kemasyarakatan.
+                    </p>
+                    <ul class="space-y-2 font-medium">
+                        <li><i class="fa-solid fa-check text-emerald-300 mr-2"></i> Kapasitas hingga 1000 jamaah</li>
+                        <li><i class="fa-solid fa-check text-emerald-300 mr-2"></i> Fasilitas AC dan karpet tebal</li>
+                        <li><i class="fa-solid fa-check text-emerald-300 mr-2"></i> Area parkir luas dan aman</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kegiatan Pengajian Rutin Section - UDAH DIBALIKIN LENGKAP -->
+    <section id="kegiatan" class="page-section hidden pt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-emerald-800">Kegiatan Pengajian Rutin</h2>
+                <p class="text-gray-500 mt-2">Mari istiqomah menghadiri majelis ilmu untuk mempererat ukhuwah</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- 1. Setiap Ahad Pagi -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-emerald-100 flex-col justify-between">
+                    <div>
+                        <div class="bg-emerald-600 px-6 py-3 text-white">
+                            <span class="text-xs font-semibold uppercase tracking-wider block opacity-90">Rutin Mingguan</span>
+                            <h3 class="text-xl font-bold mt-0.5">Setiap Ahad Pagi</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-500 text-sm mb-4">Pengajian rotasi berdasarkan kalender pasaran Jawa:</p>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-emerald-500 text-xs"></i> <span>Ahad <strong>Legi</strong> : Ust.Muhamad Karno, S.Ag.</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-emerald-500 text-xs"></i> <span>Ahad <strong>Pon</strong> : Ust.Sukron, S.Pd.i.</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-emerald-500 text-xs"></i> <span>Ahad <strong>Kliwon</strong> : Ust.Mujahidin</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-emerald-500 text-xs"></i> <span>Ahad <strong>Pahing</strong> : Ust.Ahmad Ridho, S.Ag.</span></li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-emerald-500 text-xs"></i> <span>Ahad <strong>Wage</strong> : Ust.Mujahidin</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 mt-4 bg-gray-50/50">
+                        <i class="fa-regular fa-clock mr-2 text-emerald-600"></i> Pukul 05:00 WIB - Selesai
+                    </div>
+                </div>
+
+                <!-- 2. Kajian Selasa Malam Rabu -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-emerald-100 flex-col justify-between">
+                    <div>
+                        <div class="bg-emerald-700 px-6 py-3 text-white">
+                            <span class="text-xs font-semibold uppercase tracking-wider block opacity-90">Rutin Mingguan</span>
+                            <h3 class="text-xl font-bold mt-0.5">Kajian Selasa Malam Rabu</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Pembahasan kitab fiqih, akhlak, dan tanya jawab seputar problematika umat sehari-hari.</p>
+                            
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-center gap-3 bg-emerald-50 p-2 rounded-lg">
+                                    <i class="fa-solid fa-user-tie text-emerald-700 text-lg"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Pembicara:</p>
+                                        <p class="text-sm font-semibold text-gray-800">Ust. Kharis Al Wafa, S.Pd.i</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 bg-emerald-50 p-2 rounded-lg">
+                                    <i class="fa-solid fa-user-tie text-emerald-700 text-lg"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Pembicara:</p>
+                                        <p class="text-sm font-semibold text-gray-800">Ust. H.Ma'arif Sya'bani, Lc</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 bg-emerald-50 p-2 rounded-lg">
+                                    <i class="fa-solid fa-user-tie text-emerald-700 text-lg"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Pembicara:</p>
+                                        <p class="text-sm font-semibold text-gray-800">Ust. Akhmad Ghozali</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 bg-emerald-50 p-2 rounded-lg">
+                                    <i class="fa-solid fa-user-tie text-emerald-700 text-lg"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Pembicara:</p>
+                                        <p class="text-sm font-semibold text-gray-800">Ust. Suratno, S.Q</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3 bg-emerald-50 p-2 rounded-lg">
+                                    <i class="fa-solid fa-user-tie text-emerald-700 text-lg"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Pembicara:</p>
+                                        <p class="text-sm font-semibold text-gray-800">Ust. Reza Zaldi, S.IP, CH</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 mt-4 bg-gray-50/50">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fa-regular fa-clock mr-2 text-emerald-600"></i> Ba'da Maghrib - Selesai
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Kajian Jum'at Malam Sabtu -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-emerald-100 flex-col justify-between">
+                    <div>
+                        <div class="bg-amber-600 px-6 py-3 text-white">
+                            <span class="text-xs font-semibold uppercase tracking-wider block opacity-90">Rutin Bulanan</span>
+                            <h3 class="text-xl font-bold mt-0.5">Kajian Jum'at Malam Sabtu</h3>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-3">Setiap 1 Bulan Dua Kali</span>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Kajian bulanan yang membahas Tafsir Al-Qur'an Dan Hadist.</p>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-amber-50/70 p-2 rounded-lg">
+                                    <i class="fa-solid fa-user-tie text-amber-700 text-lg"></i>
+                                    <div>
+                                        <p class="text-xs text-gray-400">Pembicara:</p>
+                                        <p class="text-sm font-semibold text-gray-800">Ust. Drs.H.Untung Supriyadi, Lc</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 mt-4 bg-gray-50/50">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fa-regular fa-clock mr-2 text-amber-600"></i> Ba'da Isya - Selesai
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Tadarus Al-Qur'an Senin-Sabtu -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-emerald-100 flex-col justify-between">
+                    <div>
+                        <div class="bg-teal-600 px-6 py-3 text-white">
+                            <span class="text-xs font-semibold uppercase tracking-wider block opacity-90">Rutin Harian</span>
+                            <h3 class="text-xl font-bold mt-0.5">Tadarus Al-Qur'an Bersama</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                Membaca dan mempelajari Al-Qur'an bersama-sama untuk mempererat ukhuwah dan menambah pahala.
+                            </p>
+                            <div class="flex items-center gap-3 bg-teal-50 p-3 rounded-lg">
+                                <i class="fa-solid fa-book-quran text-teal-700 text-lg"></i>
+                                <div>
+                                    <p class="text-xs text-gray-400">Peserta:</p>
+                                    <p class="text-sm font-semibold text-gray-800">Seluruh Jamaah</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 mt-4 bg-gray-50/50">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fa-regular fa-clock mr-2 text-teal-600"></i> Senin - Sabtu, Pukul 05:00 WIB - Selesai
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Kegiatan Hari Besar Islam -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-emerald-100 flex-col justify-between md:col-span-2">
+                    <div>
+                        <div class="bg-emerald-800 px-6 py-3 text-white">
+                            <span class="text-xs font-semibold uppercase tracking-wider block opacity-90">Tahunan</span>
+                            <h3 class="text-xl font-bold mt-0.5">Kegiatan Hari Besar Islam</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                                Peringatan hari besar Islam yang diadakan setiap tahun untuk memperingati peristiwa penting dalam sejarah Islam.
+                            </p>
+                            
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 bg-emerald-50 p-3 rounded-lg">
+                                    <i class="fa-solid fa-star text-emerald-700 mt-1"></i>
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-800">Isra Mi'raj Nabi Muhammad SAW</p>
+                                        <p class="text-xs text-gray-500">Peringatan perjalanan malam Nabi Muhammad SAW</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3 bg-emerald-50 p-3 rounded-lg">
+                                    <i class="fa-solid fa-star text-emerald-700 mt-1"></i>
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-800">Muharram dan Santunan Anak Yatim</p>
+                                        <p class="text-xs text-gray-500">Kajian awal tahun Hijriyah dan berbagi dengan anak yatim</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3 bg-emerald-50 p-3 rounded-lg">
+                                    <i class="fa-solid fa-star text-emerald-700 mt-1"></i>
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-800">Maulid Nabi Muhammad SAW</p>
+                                        <p class="text-xs text-gray-500">Peringatan kelahiran Nabi Muhammad SAW</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-100 mt-4 bg-gray-50/50">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fa-regular fa-calendar mr-2 text-emerald-700"></i> Sesuai penanggalan Hijriyah
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dokumentasi Section - BARU DITAMBAH -->
+    <section id="dokumentasi" class="page-section hidden pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-emerald-800">Dokumentasi Kegiatan</h2>
+                <p class="text-gray-500 mt-2">Galeri foto, video, dan dokumentasi Masjid Nurul Falah</p>
+            </div>
+
+            <!-- Foto -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-images text-emerald-600"></i> Galeri Foto
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="foto1.jpg" alt="Kegiatan 1" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold">Pengajian Rutin Ahad</h4>
+                            <p class="text-sm text-gray-600">12 Oktober 2025</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="foto2.jpg" alt="Kegiatan 2" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold">Santunan Anak Yatim</h4>
+                            <p class="text-sm text-gray-600">1 Muharram 1447 H</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                        <img src="foto3.jpg" alt="Kegiatan 3" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold">Kerja Bakti Bersih Masjid</h4>
+                            <p class="text-sm text-gray-600">5 Oktober 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">*Upload foto1.jpg, foto2.jpg ke folder yang sama dengan file HTML ini</p>
+            </div>
+
+            <!-- Video Lokal -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-video text-emerald-600"></i> Video Kegiatan
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <video controls class="w-full">
+                            <source src="video1.mp4" type="video/mp4">
+                            Browser kamu tidak support video.
+                        </video>
+                        <div class="p-4">
+                            <h4 class="font-semibold">Dokumentasi Maulid Nabi</h4>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">*Upload video1.mp4 ke folder yang sama</p>
+            </div>
+
+            <!-- YouTube -->
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+                    <i class="fa-brands fa-youtube text-red-600"></i> Channel YouTube
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="aspect-video">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/VIDEO_ID_KAMU" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-semibold">Kajian Jumat Malam Sabtu</h4>
+                            <a href="https://www.youtube.com/@NurulFalahMejasem" target="_blank" class="text-sm text-emerald-600 hover:underline">
+                                Lihat Channel YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">
+                    *Ganti VIDEO_ID_KAMU dengan ID video YouTube kamu. Contoh: link https://youtu.be/abc123xyz → ID nya abc123xyz
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donasi & Footer -->
+    <section id="donasi" class="page-section hidden pt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3">
+                        <img src="unnamed.png" alt="Logo Masjid Nurul Falah" class="h-10 w-auto">
+                        <div class="flex flex-col">       
+                            <span class="font-bold text-xl">Masjid Nurul Falah</span>
+                            <p class="text-gray-800 text-sm mt-1">Jl. Pala Barat 5F Desa Mejasem Barat Kec.Kramat Kab.Tegal.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-800 hover:text-white transition"><i class="fa-brands fa-youtube text-xl"></i> Nurul Falah Mejasem Official</a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-gray-800 p-6 rounded-xl border-gray-700">
+                    <h3 class="text-xl font-bold mb-4 text-emerald-400"><i class="fa-solid fa-hand-holding-heart mr-2"></i> Salurkan Infaq & Sedekah</h3>
+                    <p class="text-gray-300 mb-4">Bantu operasional masjid dan program sosial kami melalui pengurus dan bendahara masjid Hubungi:</p>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Ust.Ali Alfatah, M.Pd</p>
+                            <p class="font-mono text-xl font-bold text-white mt-1">085869140242</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Bapak Agus Isrofan, S.E</p>
+                            <p class="font-mono text-xl font-bold text-white mt-1">085874128403</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <p class="text-sm text-gray-400">Ust.Imamuddin</p>
+                            <p class="font-mono text-xl font-bold text-white mt-1">081226827858</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-300 pt-6">
+                <p class="text-center text-gray-800 text-sm">&copy; 2026 Masjid Nurul Falah Mejasem.</p>
+            </div>
+        </div>
+    </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = [...document.querySelectorAll('section.page-section')];
+  const loader = document.getElementById('menu-loader');
+  if (sections.length === 0) return;
+
+  sections.forEach(s => {
+    if (!s.classList.contains('active')) {
+      s.style.display = 'none';
+      s.style.opacity = '0';
+      s.style.transform = 'translateY(15px)';
+    } else {
+      s.style.display = 'block';
+      s.style.opacity = '1';
+      s.style.transform = 'translateY(0)';
+    }
+  });
+
+  document.body.addEventListener('click', function(e) {
+    const link = e.target.closest('a.menu-link');
+    if (!link) return;
+
+    const targetId = link.getAttribute('data-target');
+    const target = document.getElementById(targetId);
+    if (!target || target.classList.contains('active')) return;
+
+    e.preventDefault();
+
+    loader.classList.add('show');
+
+    setTimeout(() => {
+      sections.forEach(sec => {
+        sec.classList.remove('active');
+        sec.style.display = 'none';
+        sec.style.opacity = '0';
+        sec.style.transform = 'translateY(15px)';
+      });
+
+      target.classList.add('active');
+      target.style.display = 'block';
+      void target.offsetWidth;
+      target.style.opacity = '1';
+      target.style.transform = 'translateY(0)';
+
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+
+      loader.classList.remove('show');
+    }, 400);
+  });
+});
+</script>
+</body>
+</html>
